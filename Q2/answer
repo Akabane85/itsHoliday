@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+#pragma warning(disable:4996)
+enum boolean { FALSE, TRUE };
+
+int fSequence(int n);
+
+void main() {
+	int n; 
+
+	do {
+		scanf("%d", &n);
+	} while (n < 0 || n>1000);
+
+	for (int i = 1; i <= n; i++) {
+		if (fSequence(i) == 1)
+			printf("O");
+		else
+			printf("o");
+	}
+
+	printf("\n\n");
+	system("pause");
+}
+
+int fSequence(n) {
+	int f1, f2, fNum;
+	f1 = 0;
+	f2 = 1;
+
+	do {
+		fNum = f1 + f2;
+		f1 = f2;
+		f2 = fNum;
+
+		if (fNum == n)
+			return TRUE;
+	} while (fNum <= n);
+
+	return FALSE;
+}
